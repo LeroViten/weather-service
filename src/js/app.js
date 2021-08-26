@@ -31,6 +31,7 @@ async function fetchWeather() {
     const data = await weatherApi.fetchWeather();
 
     if (data.cod !== 200) {
+      hideCard();
       return alert('😢 Sorry, no weather info for that city');
     }
 
@@ -50,4 +51,9 @@ async function fetchWeather() {
 // removing visually hidden class on City card after data fetch:
 function showCard() {
   cityCard.classList.remove('visually-hidden');
+}
+
+// adding visually hidden class to City card if server responses in error:
+function hideCard() {
+  cityCard.classList.add('visually-hidden');
 }
