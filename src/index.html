@@ -19,18 +19,18 @@
   </head>
   <body>
     <h1 class="weather__title">Weather for your city</h1>
+    <form class="search-form">
+      <input
+        type="text"
+        class="search-bar"
+        name="query"
+        autocomplete="off"
+        placeholder="Start typing..."
+      />
+      <button type="submit" class="search-btn">Search</button>
+    </form>
     <!-- Weather card -->
     <div class="city-card">
-      <form class="search-form">
-        <input
-          type="text"
-          class="search-bar"
-          name="query"
-          autocomplete="off"
-          placeholder="Start typing..."
-        />
-        <button type="submit" class="search-btn">Search</button>
-      </form>
       <div class="weather">
         <h2 class="city"></h2>
         <h1 class="temp"></h1>
