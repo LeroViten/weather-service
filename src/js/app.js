@@ -1,6 +1,7 @@
 // import refs:
 import refs from './refs.js';
-const { city, temp, icon, description, inputRef, humidity, wind, searchForm, cityCard } = refs;
+const { city, temp, icon, description, inputRef, weather, humidity, wind, searchForm, cityCard } =
+  refs;
 
 // import api-service and create instance:
 import WeatherApi from './apiService.js';
@@ -19,6 +20,7 @@ function onSubmit(event) {
     return alert(`You didn't type a valid city!🤦‍♂️`);
   }
 
+  showCard();
   fetchWeather();
   inputRef.value = '';
 }
@@ -39,8 +41,13 @@ async function fetchWeather() {
     icon.alt = data.weather[0].description;
     description.textContent = data.weather[0].description;
     humidity.textContent = `Humidity: ${data.main.humidity}%`;
-    wind.textContent = `Wind speed: ${data.wind.speed} km/h`;
+    wind.textContent = `Wind Speed: ${data.wind.speed} km/h`;
   } catch (error) {
     console.error(error);
   }
+}
+
+// removing visually hidden class on City card after data fetch:
+function showCard() {
+  cityCard.classList.remove('visually-hidden');
 }
